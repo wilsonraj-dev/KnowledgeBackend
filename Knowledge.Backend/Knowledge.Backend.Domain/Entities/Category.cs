@@ -1,9 +1,9 @@
 ﻿namespace Knowledge.Backend.Domain.Entidades
 {
-    public class Categoria : Entidade
+    public class Category : Entity
     {
         public string? Nome { get; set; }
         public int ParentId { get; set; }
-        public ICollection<Artigo>? Artigos { get; set; }
+        public ICollection<Article>? Artigos { get; set; }
     }
 }

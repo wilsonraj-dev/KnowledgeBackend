@@ -1,6 +1,6 @@
 ﻿namespace Knowledge.Backend.Domain.Entidades
 {
-    public abstract class Entidade
+    public abstract class Entity
     {
         public int Id { get; set; }
     }
