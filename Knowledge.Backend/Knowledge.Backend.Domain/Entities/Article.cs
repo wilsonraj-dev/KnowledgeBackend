@@ -15,6 +15,7 @@ namespace Knowledge.Backend.Domain.Entidades
 
         public Article(string name, string description, string imageUrl, string content)
         {
+            CreateTime = DateTime.Now;
             ValidateDomain(name, description, imageUrl, content);
         }
 
@@ -39,6 +40,7 @@ namespace Knowledge.Backend.Domain.Entidades
             Description = description;
             ImageUrl = imageUrl;
             Content = content;
+            UpdateTime = DateTime.Now;
         }
     }
 }

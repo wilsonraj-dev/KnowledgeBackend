@@ -12,6 +12,7 @@ namespace Knowledge.Backend.Domain.Entidades
 
         public User(string name, string email, string password, bool admin)
         {
+            CreateTime = DateTime.Now;
             ValidateDomain(name, email, password, admin);
         }
 
@@ -35,6 +36,7 @@ namespace Knowledge.Backend.Domain.Entidades
             Email = email;
             Password = password;
             Admin = admin;
+            UpdateTime = DateTime.Now;
         }
     }
 }

@@ -10,6 +10,7 @@ namespace Knowledge.Backend.Domain.Entidades
 
         public Category(string name, int parentId)
         {
+            CreateTime = DateTime.Now;
             ValidateDomain(name, parentId);
         }
 
@@ -27,6 +28,7 @@ namespace Knowledge.Backend.Domain.Entidades
 
             Name = name;
             ParentId = parentId;
+            UpdateTime = DateTime.Now;
         }
     }
 }
