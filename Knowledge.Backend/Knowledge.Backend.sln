@@ -3,17 +3,25 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.8.34511.84
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Knowledge.Backend.Application", "Knowledge.Backend.Application\Knowledge.Backend.Application.csproj", "{44FA24EE-6D97-402A-B757-1B2B51CA43BA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Knowledge.Backend.Application", "Knowledge.Backend.Application\Knowledge.Backend.Application.csproj", "{44FA24EE-6D97-402A-B757-1B2B51CA43BA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Knowledge.Backend.Domain", "Knowledge.Backend.Domain\Knowledge.Backend.Domain.csproj", "{1B5BAC96-DFAF-4193-B2B3-04CC4B780CFF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Knowledge.Backend.Domain", "Knowledge.Backend.Domain\Knowledge.Backend.Domain.csproj", "{1B5BAC96-DFAF-4193-B2B3-04CC4B780CFF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Knowledge.Backend.Infra.Data", "Knowledge.Backend.Infra.Data\Knowledge.Backend.Infra.Data.csproj", "{9B7870D0-A0AF-454C-A1BC-21F6D5A4CFF5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Knowledge.Backend.Infra.Data", "Knowledge.Backend.Infra.Data\Knowledge.Backend.Infra.Data.csproj", "{9B7870D0-A0AF-454C-A1BC-21F6D5A4CFF5}"
+	ProjectSection(ProjectDependencies) = postProject
+		{1B5BAC96-DFAF-4193-B2B3-04CC4B780CFF} = {1B5BAC96-DFAF-4193-B2B3-04CC4B780CFF}
+	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Knowledge.Backend.Infra.IoC", "Knowledge.Backend.Infra.IoC\Knowledge.Backend.Infra.IoC.csproj", "{523DF8FD-FDC1-4AAE-A96C-6952C19B0ADE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Knowledge.Backend.Infra.IoC", "Knowledge.Backend.Infra.IoC\Knowledge.Backend.Infra.IoC.csproj", "{523DF8FD-FDC1-4AAE-A96C-6952C19B0ADE}"
+	ProjectSection(ProjectDependencies) = postProject
+		{1B5BAC96-DFAF-4193-B2B3-04CC4B780CFF} = {1B5BAC96-DFAF-4193-B2B3-04CC4B780CFF}
+		{44FA24EE-6D97-402A-B757-1B2B51CA43BA} = {44FA24EE-6D97-402A-B757-1B2B51CA43BA}
+		{9B7870D0-A0AF-454C-A1BC-21F6D5A4CFF5} = {9B7870D0-A0AF-454C-A1BC-21F6D5A4CFF5}
+	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Knowledge.Backend.Domain.Testes", "Knowledge.Backend.Domain.Testes\Knowledge.Backend.Domain.Testes.csproj", "{34F70389-5C3B-4674-9EC8-6ABB66F549FC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Knowledge.Backend.Domain.Testes", "Knowledge.Backend.Domain.Testes\Knowledge.Backend.Domain.Testes.csproj", "{34F70389-5C3B-4674-9EC8-6ABB66F549FC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Knowledge.Backend.API", "Knowledge.Backend.API\Knowledge.Backend.API.csproj", "{C097C135-4942-4EA0-8703-A6BFEE6FD185}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Knowledge.Backend.API", "Knowledge.Backend.API\Knowledge.Backend.API.csproj", "{C097C135-4942-4EA0-8703-A6BFEE6FD185}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
