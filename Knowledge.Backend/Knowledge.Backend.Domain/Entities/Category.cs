@@ -6,6 +6,8 @@ namespace Knowledge.Backend.Domain.Entidades
     {
         public string? Name { get; set; }
         public int ParentId { get; set; }
+        public int CategoryId { get; set; }
+        public ICollection<Category> SubCategories { get; set; }
         public ICollection<Article>? Articles { get; set; }
 
         public Category(string name, int parentId)
