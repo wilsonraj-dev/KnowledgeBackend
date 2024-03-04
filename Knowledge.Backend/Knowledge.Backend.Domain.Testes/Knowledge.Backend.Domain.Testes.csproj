@@ -22,4 +22,8 @@
     </PackageReference>
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\Knowledge.Backend.Domain\Knowledge.Backend.Domain.csproj" />
+  </ItemGroup>
+
 </Project>

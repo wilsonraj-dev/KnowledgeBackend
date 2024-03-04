@@ -6,4 +6,17 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <PackageReference Include="AutoMapper" Version="13.0.1" />
+	<PackageReference Include="Swashbuckle.AspNetCore.Swagger" Version="6.5.0" />
+	<PackageReference Include="Swashbuckle.AspNetCore.SwaggerGen" Version="6.5.0" />
+	<PackageReference Include="Swashbuckle.AspNetCore.SwaggerUI" Version="6.5.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Knowledge.Backend.Application\Knowledge.Backend.Application.csproj" />
+    <ProjectReference Include="..\Knowledge.Backend.Domain\Knowledge.Backend.Domain.csproj" />
+    <ProjectReference Include="..\Knowledge.Backend.Infra.Data\Knowledge.Backend.Infra.Data.csproj" />
+  </ItemGroup>
+
 </Project>
