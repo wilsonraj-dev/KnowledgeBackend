@@ -1,6 +1,7 @@
 ﻿using Knowledge.Backend.Domain.Entidades;
 using Knowledge.Backend.Domain.Interfaces;
 using Knowledge.Backend.Infra.Data.Context;
+using Microsoft.EntityFrameworkCore;
 
 namespace Knowledge.Backend.Infra.Data.Repositories
 {
@@ -13,25 +14,35 @@ namespace Knowledge.Backend.Infra.Data.Repositories
             _context = context;
         }
 
-        public Task<IEnumerable<Category>> GetCategoriesAsync()
+        public async Task<IEnumerable<Category>> GetCategoriesAsync()
         {
-            throw new NotImplementedException();
+            return await _context.Categories.ToListAsync();
         }
-        public Task<Category> GetCategoryByIdAsync(int? id)
+
+        public async Task<Category> GetCategoryByIdAsync(int? id)
         {
-            throw new NotImplementedException();
+            return await _context.Categories.FindAsync(id);
         }
-        public Task<Category> CreateCategoryAsync(Category category)
+
+        public async Task<Category> CreateCategoryAsync(Category category)
         {
-            throw new NotImplementedException();
+            _context.Categories.Add(category);
+            await _context.SaveChangesAsync();
+            return category;
         }
-        public Task<Category> UpdateCategoryAsync(Category category)
+
+        public async Task<Category> UpdateCategoryAsync(Category category)
         {
-            throw new NotImplementedException();
+            _context.Categories.Update(category);
+            await _context.SaveChangesAsync();
+            return category;
         }
-        public Task<Category> DeleteCategoryAsync(Category category)
+
+        public async Task<Category> DeleteCategoryAsync(Category category)
         {
-            throw new NotImplementedException();
+            _context.Categories.Remove(category);
+            await _context.SaveChangesAsync();
+            return category;
         }
     }
 }

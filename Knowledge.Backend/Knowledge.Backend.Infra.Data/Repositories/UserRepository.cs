@@ -1,6 +1,7 @@
 ﻿using Knowledge.Backend.Domain.Entidades;
 using Knowledge.Backend.Domain.Interfaces;
 using Knowledge.Backend.Infra.Data.Context;
+using Microsoft.EntityFrameworkCore;
 
 namespace Knowledge.Backend.Infra.Data.Repositories
 {
@@ -13,29 +14,40 @@ namespace Knowledge.Backend.Infra.Data.Repositories
             _context = context;
         }
 
-        public Task<IEnumerable<User>> GetUsersAsync()
+        public async Task<IEnumerable<User>> GetUsersAsync()
         {
-            throw new NotImplementedException();
+            return await _context.Users.ToListAsync();
         }
-        public Task<User> GetUserByIdAsync(int? id)
+
+        public async Task<User> GetUserByIdAsync(int? id)
         {
-            throw new NotImplementedException();
+            return await _context.Users.FindAsync(id);
         }
-        public Task<User> GetUserByNameAsync(string? name)
+
+        public async Task<IEnumerable<User>> GetUsersByNameAsync(string? name)
         {
-            throw new NotImplementedException();
+            return await _context.Users.Where(x => x.Name.Contains(name)).ToListAsync();
         }
-        public Task<User> CreateUserAsync(User article)
+
+        public async Task<User> CreateUserAsync(User user)
         {
-            throw new NotImplementedException();
+            _context.Add(user);
+            await _context.SaveChangesAsync();
+            return user;
         }
-        public Task<User> UpdateUserAsync(User article)
+
+        public async Task<User> UpdateUserAsync(User user)
         {
-            throw new NotImplementedException();
+            _context.Update(user);
+            await _context.SaveChangesAsync();
+            return user;
         }
-        public Task<User> DeleteUserAsync(User article)
+
+        public async Task<User> DeleteUserAsync(User user)
         {
-            throw new NotImplementedException();
+            _context.Remove(user);
+            await _context.SaveChangesAsync();
+            return user;
         }
     }
 }

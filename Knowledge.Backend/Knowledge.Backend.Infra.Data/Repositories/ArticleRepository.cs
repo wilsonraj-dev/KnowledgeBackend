@@ -1,6 +1,7 @@
 ﻿using Knowledge.Backend.Domain.Entidades;
 using Knowledge.Backend.Domain.Interfaces;
 using Knowledge.Backend.Infra.Data.Context;
+using Microsoft.EntityFrameworkCore;
 
 namespace Knowledge.Backend.Infra.Data.Repositories
 {
@@ -13,29 +14,40 @@ namespace Knowledge.Backend.Infra.Data.Repositories
             _context = context;
         }
 
-        public Task<IEnumerable<Article>> GetArticlesAsync()
+        public async Task<IEnumerable<Article>> GetArticlesAsync()
         {
-            throw new NotImplementedException();
+            return await _context.Articles.ToListAsync();
         }
-        public Task<Article> GetArticleByIdAsync(int? id)
+
+        public async Task<Article> GetArticleByIdAsync(int? id)
         {
-            throw new NotImplementedException();
+            return await _context.Articles.FindAsync(id);
         }
-        public Task<Article> GetArticleByNameAsync(string? name)
+
+        public async Task<IEnumerable<Article>> GetArticlesByNameAsync(string? name)
         {
-            throw new NotImplementedException();
+            return await _context.Articles.Where(x => x.Name.Contains(name)).ToListAsync();
         }
-        public Task<Article> CreateArticleAsync(Article article)
+
+        public async Task<Article> CreateArticleAsync(Article article)
         {
-            throw new NotImplementedException();
+            _context.Articles.Add(article);
+            await _context.SaveChangesAsync();
+            return article;
         }
-        public Task<Article> UpdateArticleAsync(Article article)
+
+        public async Task<Article> UpdateArticleAsync(Article article)
         {
-            throw new NotImplementedException();
+            _context.Articles.Update(article);
+            await _context.SaveChangesAsync();
+            return article;
         }
-        public Task<Article> DeleteArticleAsync(Article article)
+
+        public async Task<Article> DeleteArticleAsync(Article article)
         {
-            throw new NotImplementedException();
+            _context.Articles.Remove(article);
+            await _context.SaveChangesAsync();
+            return article;
         }
     }
 }
