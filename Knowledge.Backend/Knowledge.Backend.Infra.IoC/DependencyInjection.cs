@@ -1,4 +1,5 @@
-﻿using Knowledge.Backend.Domain.Interfaces;
+﻿using Knowledge.Backend.Application.Mappings;
+using Knowledge.Backend.Domain.Interfaces;
 using Knowledge.Backend.Infra.Data.Context;
 using Knowledge.Backend.Infra.Data.Repositories;
 using Microsoft.EntityFrameworkCore;
@@ -21,6 +22,8 @@ namespace Knowledge.Backend.Infra.IoC
             services.AddScoped<IArticleRepository, ArticleRepository>();
             services.AddScoped<ICategoryRepository, CategoryRepository>();
             services.AddScoped<IUserRepository, UserRepository>();
+
+            services.AddAutoMapper(typeof(DomainToDTOMappingProfile));
 
             return services;
         }
