@@ -20,8 +20,7 @@ namespace Knowledge.Backend.Infra.Data.Configuration
 
             builder.HasMany(x => x.SubCategories)
                    .WithOne()
-                   .HasForeignKey(x => x.CategoryId)
-                   .IsRequired(false);
+                   .HasForeignKey(x => x.CategoryId);
         }
     }
 }
