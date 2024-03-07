@@ -6,8 +6,8 @@ namespace Knowledge.Backend.Application.Interfaces
     {
         Task<IEnumerable<CategoryDTO>> GetCategoriesAsync();
         Task<CategoryDTO> GetCategoryByIdAsync(int? id);
-        Task CreateCategoryAsync(CategoryDTO category);
-        Task UpdateCategoryAsync(CategoryDTO category);
+        Task CreateCategoryAsync(CategoryDTO categoryDTO);
+        Task UpdateCategoryAsync(CategoryDTO categoryDTO);
         Task DeleteCategoryAsync(int? id);
     }
 }

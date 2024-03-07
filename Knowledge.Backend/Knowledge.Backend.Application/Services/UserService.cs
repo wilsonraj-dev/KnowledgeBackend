@@ -1,43 +1,56 @@
 ﻿using AutoMapper;
 using Knowledge.Backend.Application.DTOs;
 using Knowledge.Backend.Application.Interfaces;
+using Knowledge.Backend.Domain.Entidades;
+using Knowledge.Backend.Domain.Interfaces;
 
 namespace Knowledge.Backend.Application.Services
 {
     internal class UserService : IUserService
     {
-        private IUserService _userService;
+        private IUserRepository _userRepository;
         private readonly IMapper _mapper;
 
-        public UserService(IUserService userService, IMapper mapper)
+        public UserService(IUserRepository userRepository, IMapper mapper)
         {
-            _userService = userService;
+            _userRepository = userRepository;
             _mapper = mapper;
         }
 
-        public Task<IEnumerable<UserDTO>> GetUsersAsync()
+        public async Task<IEnumerable<UserDTO>> GetUsersAsync()
         {
-            throw new NotImplementedException();
+            var users = await _userRepository.GetUsersAsync();
+            return _mapper.Map<IEnumerable<UserDTO>>(users);
         }
-        public Task<UserDTO> GetUserByIdAsync(int? id)
+
+        public async Task<UserDTO> GetUserByIdAsync(int? id)
         {
-            throw new NotImplementedException();
+            var user = await _userRepository.GetUserByIdAsync(id);
+            return _mapper.Map<UserDTO>(user);
         }
-        public Task<UserDTO> GetUserByNameAsync(string? name)
+
+        public async Task<UserDTO> GetUserByNameAsync(string? name)
         {
-            throw new NotImplementedException();
+            var user = await _userRepository.GetUsersByNameAsync(name);
+            return _mapper.Map<UserDTO>(user);
         }
-        public Task CreateUserAsync(UserDTO article)
+
+        public async Task CreateUserAsync(UserDTO userDTO)
         {
-            throw new NotImplementedException();
+            var userEntity = _mapper.Map<User>(userDTO);
+            await _userRepository.CreateUserAsync(userEntity);
         }
-        public Task UpdateUserAsync(UserDTO article)
+
+        public async Task UpdateUserAsync(UserDTO userDTO)
         {
-            throw new NotImplementedException();
+            var userEntity = _mapper.Map<User>(userDTO);
+            await _userRepository.UpdateUserAsync(userEntity);
         }
-        public Task DeleteUserAsync(int? id)
+
+        public async Task DeleteUserAsync(int? id)
         {
-            throw new NotImplementedException();
+            var user = _userRepository.GetUserByIdAsync(id).Result;
+            await _userRepository.DeleteUserAsync(user);
         }
     }
 }

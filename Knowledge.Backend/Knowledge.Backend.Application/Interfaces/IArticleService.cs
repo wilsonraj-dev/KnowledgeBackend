@@ -6,9 +6,9 @@ namespace Knowledge.Backend.Application.Interfaces
     {
         Task<IEnumerable<ArticleDTO>> GetArticlesAsync();
         Task<ArticleDTO> GetArticleByIdAsync(int? id);
-        Task<ArticleDTO> GetArticleByNameAsync(string? name);
-        Task CreateArticleAsync(ArticleDTO article);
-        Task UpdateArticleAsync(ArticleDTO article);
+        Task<IEnumerable<ArticleDTO>> GetArticleByNameAsync(string? name);
+        Task CreateArticleAsync(ArticleDTO articleDTO);
+        Task UpdateArticleAsync(ArticleDTO articleDTO);
         Task DeleteArticleAsync(int? id);
     }
 }

@@ -7,8 +7,8 @@ namespace Knowledge.Backend.Application.Interfaces
         Task<IEnumerable<UserDTO>> GetUsersAsync();
         Task<UserDTO> GetUserByIdAsync(int? id);
         Task<UserDTO> GetUserByNameAsync(string? name);
-        Task CreateUserAsync(UserDTO article);
-        Task UpdateUserAsync(UserDTO article);
+        Task CreateUserAsync(UserDTO userDTO);
+        Task UpdateUserAsync(UserDTO userDTO);
         Task DeleteUserAsync(int? id);
     }
 }
