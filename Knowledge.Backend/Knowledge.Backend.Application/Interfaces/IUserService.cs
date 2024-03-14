@@ -4,11 +4,11 @@ namespace Knowledge.Backend.Application.Interfaces
 {
     public interface IUserService
     {
-        Task<IEnumerable<UserDTO>> GetUsersAsync();
-        Task<UserDTO> GetUserByIdAsync(int? id);
-        Task<UserDTO> GetUserByNameAsync(string? name);
-        Task CreateUserAsync(UserDTO userDTO);
-        Task UpdateUserAsync(UserDTO userDTO);
-        Task DeleteUserAsync(int? id);
+        Task<IEnumerable<UserDTO>> GetUsersDTOAsync();
+        Task<UserDTO> GetUserDTOByIdAsync(int? id);
+        Task<UserDTO> GetUserDTOByNameAsync(string? name);
+        Task CreateUserDTOAsync(UserDTO userDTO);
+        Task UpdateUserDTOAsync(UserDTO userDTO);
+        Task DeleteUserDTOAsync(int? id);
     }
 }

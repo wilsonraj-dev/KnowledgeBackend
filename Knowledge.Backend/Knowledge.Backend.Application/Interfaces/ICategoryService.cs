@@ -4,10 +4,10 @@ namespace Knowledge.Backend.Application.Interfaces
 {
     public interface ICategoryService
     {
-        Task<IEnumerable<CategoryDTO>> GetCategoriesAsync();
-        Task<CategoryDTO> GetCategoryByIdAsync(int? id);
-        Task CreateCategoryAsync(CategoryDTO categoryDTO);
-        Task UpdateCategoryAsync(CategoryDTO categoryDTO);
-        Task DeleteCategoryAsync(int? id);
+        Task<IEnumerable<CategoryDTO>> GetCategoriesDTOAsync();
+        Task<CategoryDTO> GetCategoryDTOByIdAsync(int? id);
+        Task CreateCategoryDTOAsync(CategoryDTO categoryDTO);
+        Task UpdateCategoryDTOAsync(CategoryDTO categoryDTO);
+        Task DeleteCategoryDTOAsync(int? id);
     }
 }

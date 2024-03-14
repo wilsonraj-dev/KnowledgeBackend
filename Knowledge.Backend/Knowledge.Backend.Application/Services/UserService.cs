@@ -6,7 +6,7 @@ using Knowledge.Backend.Domain.Interfaces;
 
 namespace Knowledge.Backend.Application.Services
 {
-    internal class UserService : IUserService
+    public class UserService : IUserService
     {
         private IUserRepository _userRepository;
         private readonly IMapper _mapper;
@@ -17,37 +17,37 @@ namespace Knowledge.Backend.Application.Services
             _mapper = mapper;
         }
 
-        public async Task<IEnumerable<UserDTO>> GetUsersAsync()
+        public async Task<IEnumerable<UserDTO>> GetUsersDTOAsync()
         {
             var users = await _userRepository.GetUsersAsync();
             return _mapper.Map<IEnumerable<UserDTO>>(users);
         }
 
-        public async Task<UserDTO> GetUserByIdAsync(int? id)
+        public async Task<UserDTO> GetUserDTOByIdAsync(int? id)
         {
             var user = await _userRepository.GetUserByIdAsync(id);
             return _mapper.Map<UserDTO>(user);
         }
 
-        public async Task<UserDTO> GetUserByNameAsync(string? name)
+        public async Task<UserDTO> GetUserDTOByNameAsync(string? name)
         {
             var user = await _userRepository.GetUsersByNameAsync(name);
             return _mapper.Map<UserDTO>(user);
         }
 
-        public async Task CreateUserAsync(UserDTO userDTO)
+        public async Task CreateUserDTOAsync(UserDTO userDTO)
         {
             var userEntity = _mapper.Map<User>(userDTO);
             await _userRepository.CreateUserAsync(userEntity);
         }
 
-        public async Task UpdateUserAsync(UserDTO userDTO)
+        public async Task UpdateUserDTOAsync(UserDTO userDTO)
         {
             var userEntity = _mapper.Map<User>(userDTO);
             await _userRepository.UpdateUserAsync(userEntity);
         }
 
-        public async Task DeleteUserAsync(int? id)
+        public async Task DeleteUserDTOAsync(int? id)
         {
             var user = _userRepository.GetUserByIdAsync(id).Result;
             await _userRepository.DeleteUserAsync(user);

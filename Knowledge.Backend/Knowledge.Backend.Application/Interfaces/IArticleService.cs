@@ -4,11 +4,11 @@ namespace Knowledge.Backend.Application.Interfaces
 {
     public interface IArticleService
     {
-        Task<IEnumerable<ArticleDTO>> GetArticlesAsync();
-        Task<ArticleDTO> GetArticleByIdAsync(int? id);
-        Task<IEnumerable<ArticleDTO>> GetArticleByNameAsync(string? name);
-        Task CreateArticleAsync(ArticleDTO articleDTO);
-        Task UpdateArticleAsync(ArticleDTO articleDTO);
-        Task DeleteArticleAsync(int? id);
+        Task<IEnumerable<ArticleDTO>> GetArticlesDTOAsync();
+        Task<ArticleDTO> GetArticleDTOByIdAsync(int? id);
+        Task<IEnumerable<ArticleDTO>> GetArticleDTOByNameAsync(string? name);
+        Task CreateArticleDTOAsync(ArticleDTO articleDTO);
+        Task UpdateArticleDTOAsync(ArticleDTO articleDTO);
+        Task DeleteArticleDTOAsync(int? id);
     }
 }
