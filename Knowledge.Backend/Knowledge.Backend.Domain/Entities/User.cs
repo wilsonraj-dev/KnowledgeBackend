@@ -1,4 +1,5 @@
-﻿using Knowledge.Backend.Domain.Validacao;
+﻿using Knowledge.Backend.Domain.Utils;
+using Knowledge.Backend.Domain.Validacao;
 
 namespace Knowledge.Backend.Domain.Entidades
 {
@@ -30,13 +31,13 @@ namespace Knowledge.Backend.Domain.Entidades
             DomainExceptionValidation.When(name.Length < 3, "Invalid name, too short, minimum 3 characters.");
             DomainExceptionValidation.When(string.IsNullOrEmpty(email), "Invalid email. Email is required.");
             DomainExceptionValidation.When(string.IsNullOrEmpty(password), "Invalid password. Password is required.");
-            DomainExceptionValidation.When(password.Length < 7, "Invalid password, too short, minimum 3 characters.");
+            DomainExceptionValidation.When(password.Length < 7, "Invalid password, too short, minimum 7 characters.");
 
             Name = name;
             Email = email;
-            Password = password;
+            Password = Id == 0 ? password.Encrypt() : password;
             Admin = admin;
-            UpdateTime = DateTime.Now;
+            UpdateTime = DateTime.UtcNow;
         }
     }
 }
