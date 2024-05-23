@@ -9,9 +9,9 @@ namespace Knowledge.Backend.Domain.Entidades
         public string? ImageUrl { get; set; }
         public string? Content { get; set; }
         public int UserId { get; set; }
-        public User? User { get; set; }
+        public virtual User? User { get; set; }
         public int CategoryId { get; set; }
-        public Category? Category { get; set; }
+        public virtual Category? Category { get; set; }
 
         public Article(string name, string description, string imageUrl, string content)
         {

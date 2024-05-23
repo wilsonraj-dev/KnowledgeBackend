@@ -29,6 +29,12 @@ namespace Knowledge.Backend.Application.Services
             return _mapper.Map<ArticleDTO>(article);
         }
 
+        public async Task<IEnumerable<ArticleDTO>> GetArticlesDTOByCategoryAsync(int idCategory)
+        {
+            var articles = await _articleRepository.GetArticlesByCategoryAsync(idCategory);
+            return _mapper.Map<IEnumerable<ArticleDTO>>(articles);
+        }
+
         public async Task<IEnumerable<ArticleDTO>> GetArticleDTOByNameAsync(string? name)
         {
             var articles = await _articleRepository.GetArticlesByNameAsync(name);

@@ -6,6 +6,7 @@ namespace Knowledge.Backend.Domain.Interfaces
     {
         Task<IEnumerable<Article>> GetArticlesAsync();
         Task<Article> GetArticleByIdAsync(int? id);
+        Task<IEnumerable<Article>> GetArticlesByCategoryAsync(int idCategory);
         Task<IEnumerable<Article>> GetArticlesByNameAsync(string? name);
         Task<Article> CreateArticleAsync(Article article);
         Task<Article> UpdateArticleAsync(Article article);

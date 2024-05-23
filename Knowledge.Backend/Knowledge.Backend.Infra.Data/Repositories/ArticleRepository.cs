@@ -24,6 +24,11 @@ namespace Knowledge.Backend.Infra.Data.Repositories
             return await _context.Articles.FindAsync(id);
         }
 
+        public async Task<IEnumerable<Article>> GetArticlesByCategoryAsync(int idCategory)
+        {
+            return await _context.Articles.Where(x => x.CategoryId == idCategory).ToListAsync();
+        }
+
         public async Task<IEnumerable<Article>> GetArticlesByNameAsync(string? name)
         {
             return await _context.Articles.Where(x => x.Name.Contains(name)).ToListAsync();
